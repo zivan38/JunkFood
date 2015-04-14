@@ -1,5 +1,10 @@
+
 /**
- * Created by vladimir on 14.04.2015.
+ * Заказ
  */
 public class Order {
+    public void addMeal(Meal meal){
+        //todo
+        throw new UnsupportedOperationException();
+    }
 }

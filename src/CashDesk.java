@@ -1,5 +1,11 @@
 /**
- * Created by vladimir on 14.04.2015.
+ *
+ * КАССА. Принимает, хранит и обрабатывает заказы
  */
 public class CashDesk {
+
+
+    public static void main(String[] args){
+        // if you need main method
+    }
 }

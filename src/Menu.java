@@ -2,7 +2,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by vladimir on 14.04.2015.
+ *
+ * Меню. Список блюд
+ *
  */
 public class Menu {
     public List<Meal> list(){

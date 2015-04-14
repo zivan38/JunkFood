@@ -1,5 +1,10 @@
 /**
- * Created by vladimir on 14.04.2015.
+ *
+ * Еда. Пища.
  */
 public class Meal {
+    public String getTitle(){
+        //todo
+        throw new UnsupportedOperationException();
+    }
 }
