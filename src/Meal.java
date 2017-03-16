@@ -1,6 +1,6 @@
 /**
  *
- * Еда. Пища. Блюдо.
+ * Блюдо из меню
  */
 public class Meal {
 
@@ -12,6 +12,15 @@ public class Meal {
      * @return наименование блюда
      */
     public String getTitle(){
+        //todo
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Вовзвращает цену с плавающей точкой.
+     * @return Цена, число с плавающей точкой в у.е.
+     */
+    public Float getPrice(){
         //todo
         throw new UnsupportedOperationException();
     }
