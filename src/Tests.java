@@ -88,7 +88,7 @@ public class Tests {
 
     @Test
     public void Test12Create() {
-        Meal meal = new Meal("meal1", 10f);
+        Meal meal = new Meal("meal1", 12.5f);
         assertEquals("meal1", meal.getTitle());
         assertEquals(10f, meal.getPrice());
     }
@@ -167,7 +167,7 @@ public class Tests {
         Float price5 = menu5.list().get(2).getPrice();
         int a = 5;
         Float sum = price5*a;
-        order.addMeal(menu5.list().get(2),count);
+        order.addMeals(menu5.list().get(2),count);
         assertEquals(sum,order5.totalSum());
     }
 
