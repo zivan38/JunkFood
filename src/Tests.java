@@ -101,7 +101,7 @@ public class Tests {
         assertEquals(meal1,meal2);
 
     }
-
+    
     //todo Test 3 на создание меню
     //todo Проверьте, что можно создать объект класса Menu
     //todo Проверьте, что список не пуст.
@@ -115,7 +115,7 @@ public class Tests {
         assertTrue(menu3.list().size() >= 10);
         assertEquals(menu3.list(),menu3.list());
     }
-
+    
     //todo Test 3 на заказ
     //todo Проверьте, что в заказ можно добавить блюдо из меню
     //todo Проверьте, что добавить в заказ можно только блюдо из меню (иначе должно кидаться исключение IllegalArgumentException
@@ -133,27 +133,25 @@ public class Tests {
         o = new Order();
         o.addMeal(new Meal("meal3", 12.5f));
     }
-
+    
     //todo Test 4 на цену заказа
     // todo Проверьте, что сумма пустого заказа равна 0
     // todo Проверьте, что после добавления в заказ сумма увеличилась соответственно
     // todo Проверьте, что сумма заказа считается корректно для разных тестовых наборов
 
     @Test
-    public void Test4Price() {
-        Order order4 = new Order();
-        Menu menu4 = new Menu();
-        assertEquals(new Float(0), order4.totalSum());
-        Float price4 = menu4.list().get(0).getPrice();
-        order4.addMeal(menu4.list().get(0));
-        assertEquals(price4,order4.totalSum());
-
-
-        Float price5 = menu4.list().get(1).getPrice() + menu4.list().get(2).getPrice();
-        Order order5 = new Order();
-        order5.addMeal(menu4.list().get(1));
-        order5.addMeal(menu4.list().get(2));
-        assertEquals(price5, order5.totalSum());
+    public void testPriceOfTheOrder() {
+        Order order = new Order();
+        Menu menu = new Menu();
+        assertEquals(new Float(0), order.totalSum());
+        Float price = menu.list().get(0).getPrice();
+        order.addMeal(menu.list().get(0));
+        assertEquals(price,order.totalSum());
+        Order order1 = new Order();
+        Float price1 = menu.list().get(1).getPrice() + menu.list().get(2).getPrice();
+        order1.addMeal(menu.list().get(1));
+        order1.addMeal(menu.list().get(2));
+        assertEquals(price1, order1.totalSum());
     }
 
     //todo Test 5 на добавление нескольких блюд одного наименования
@@ -161,14 +159,30 @@ public class Tests {
     //todo Проверьте, что сумма заказа изменилась соответственно
 
     @Test
-    public void Test5Repeat() {
-        Order order5 = new Order();
-        Menu menu5 = new Menu();
-        Float price5 = menu5.list().get(2).getPrice();
-        int a = 5;
-        Float sum = price5*a;
-        order.addMeals(menu5.list().get(2),count);
-        assertEquals(sum,order5.totalSum());
+    public void testPriceOfTheOrderWithRepeatingMeals() {
+        Order order = new Order();
+        Menu menu = new Menu();
+        Float price = menu.list().get(2).getPrice();
+        int count = 5;
+        Float sum = price*count;
+        order.addMeal(menu.list().get(2),count);
+        assertEquals(sum,order.totalSum());
     }
 
+    @Test
+    public void testNoRepeatingMealsInMenu() {
+        Menu menu = new Menu();
+        List<Meal> list = menu.list();
+        List<Meal> listTemp = new ArrayList<>();
+        boolean flag = false;
+        for (int i = 0; i < list.size();i++){
+            if (!listTemp.contains(list.get(i))){
+                listTemp.add(list.get(i));
+            } else {
+                flag = true;
+                break;
+            }
+        }
+        assertFalse(flag);
+    }
 }
